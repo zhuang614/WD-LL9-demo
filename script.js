@@ -73,9 +73,13 @@ const songs = [
     <div id="voteCount">Votes: 0</div>
   `;
   
+  let voteCount = 0;
+
   document.getElementById("vote").addEventListener("click", () => {
-    // Add your code here
+    voteCount++;
+    document.getElementById("voteCount").textContent = `Votes: ${voteCount}`;
   });
+
   
   // 3️⃣ Tour Date Spotlight
   document.getElementById("tourHighlight").innerHTML = `
@@ -89,8 +93,17 @@ const songs = [
 
   // Sample event listener for one city
   document.getElementById("cityOslo").addEventListener("click", () => {
-    // Add your code here
+    alert("📍 Oslo – Opening night! Get ready to rock!");
   });
+
+  document.getElementById("cityBerlin").addEventListener("click", () => {
+    alert("📍 Berlin – Expect a legendary performance!");
+  });
+
+  document.getElementById("cityLondon").addEventListener("click", () => {
+    alert("📍 London – The tour’s grand finale!");
+  });
+
   
   // Students will need to add one for each remaining city (Berlin and London)
   
@@ -102,8 +115,14 @@ const songs = [
   
   // This logic can run on page load or refresh
   function displayNextTourStop() {
-    // Add your code here
+  const cities = ["Oslo", "Berlin", "London"];
+  const nextCity = cities[Math.floor(Math.random() * cities.length)];
+  document.getElementById("nextStop").textContent = `🚌 Next stop: ${nextCity}`;
   }
+
+// Call the function once on page load
+  displayNextTourStop();
+
   
   // 5️⃣ Entry Checkpoint
   document.getElementById("emailCheck").innerHTML = `
@@ -114,8 +133,19 @@ const songs = [
   `;
   
   document.getElementById("checkEmail").addEventListener("click", () => {
-    // Add your code here
+  const email = document.getElementById("emailInput").value;
+  const result = document.getElementById("emailResult");
+
+  // Basic email validation: must contain "@" and "."
+  if (email.includes("@") && email.includes(".")) {
+    result.textContent = "✅ Valid email. You're all set!";
+    result.style.color = "limegreen";
+  } else {
+    result.textContent = "❌ Invalid email. Please enter a valid address.";
+    result.style.color = "crimson";
+  }
   });
+
   
   // 6️⃣ Band Bio Toggle
   document.getElementById("bioToggle").innerHTML = `
@@ -125,5 +155,11 @@ const songs = [
   `;
 
   document.getElementById("toggleBio").addEventListener("click", () => {
-    // Add your code here
-  });  
+  const bio = document.getElementById("bio");
+
+  if (bio.style.display === "none") {
+    bio.style.display = "block";
+  } else {
+    bio.style.display = "none";
+  }
+  });
