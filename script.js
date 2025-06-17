@@ -58,12 +58,12 @@ const songs = [
     <div id="winnerOutput"></div>
   `;
   
-const entries = ["alice@example.com", "ben@example.com", "carla@example.com", "dave@example.com"];
+  const entries = ["alice@example.com", "ben@example.com", "carla@example.com", "dave@example.com"];
 
-document.getElementById("pickWinner").addEventListener("click", () => {
-  const winner = entries[Math.floor(Math.random() * entries.length)];
-  document.getElementById("winnerOutput").textContent = `🎉 VIP Winner: ${winner}`;
-});
+  document.getElementById("pickWinner").addEventListener("click", () => {
+    const winner = entries[Math.floor(Math.random() * entries.length)];
+    document.getElementById("winnerOutput").textContent = `🎉 VIP Winner: ${winner}`;
+  });
 
   
   // 2️⃣ Fan Favorite Showdown
